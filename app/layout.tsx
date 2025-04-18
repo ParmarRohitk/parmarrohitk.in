@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Preloader from "@/src/components/Preloader";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,9 +25,36 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        {/* Template Google Fonts */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Livvic:wght@100;200;300;400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap"
+          rel="stylesheet"
+        />
+        {/* Template CSS Files */}
+        <link rel="stylesheet" href="css/devicon.min.css" />
+        <link rel="stylesheet" href="css/all.min.css" />
+        <link rel="stylesheet" href="css/bootstrap.min.css" />
+        <link rel="stylesheet" href="css/swiper-bundle.min.css" />
+        <link rel="stylesheet" href="css/animate.min.css" />
+        <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css" />
+        <link rel="stylesheet" href="css/style.css" />
+        {/* CSS Skin File */}
+        <link rel="stylesheet" href="css/skins/yellow.css" />
+        {/* Live Style Switcher - demo only */}
+
+        <link rel="stylesheet" type="text/css" href="css/styleswitcher.css" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        {/* <SalimovHead /> */}
+        {/* <Switcher /> */}
+        <Preloader />
         {children}
       </body>
     </html>
