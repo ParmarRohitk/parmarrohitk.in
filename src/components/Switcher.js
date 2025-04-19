@@ -1,4 +1,3 @@
-"use client";
 import Head from "next/head";
 import { Fragment, useState } from "react";
 const colors = [
@@ -29,7 +28,7 @@ const Switcher = () => {
           <h4>COLOR SWITCHER</h4>
           <ul>
             {colors.map((color) => (
-              <li key={color.id}>
+              <li>
                 <a
                   href="#"
                   title={color.name}

@@ -1,82 +1,54 @@
+const facts = [
+  {
+    count: `${new Date().getFullYear() - 2022}+`,
+    label: "years of",
+    emphasis: "experience",
+  },
+  {
+    count: "30+",
+    label: "completed",
+    emphasis: "projects",
+  },
+  {
+    count: "20+",
+    label: "Happy",
+    emphasis: "clients",
+  },
+  {
+    count: "10+",
+    label: "technologies",
+    emphasis: "mastered",
+  },
+  {
+    count: "5+",
+    label: "CMS &",
+    emphasis: "Frameworks",
+  },
+];
+
 const Facts = () => {
   return (
     <section className="facts">
       <div className="flex-column-mobile">
-        {/* SINGE FACT ITEM STARTS */}
-        <div
-          className="animated-layer fade-in-right-animation fadeInLeft wow"
-          data-wow-offset={200}
-        >
-          <div>
+        {facts.map((fact, index) => (
+          <div
+            key={index}
+            className={`animated-layer fade-in-right-animation ${
+              index % 2 === 0 ? "fadeInLeft" : "fadeInRight"
+            } wow`}
+            data-wow-offset={200}
+          >
             <div>
-              <h3>13</h3>
-              <p>
-                years of<span>experience</span>
-              </p>
+              <div>
+                <h3>{fact.count}</h3>
+                <p>
+                  {fact.label}
+                  <span>{fact.emphasis}</span>
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-        {/* SINGE FACT ITEM ENDS */}
-        {/* SINGE FACT ITEM STARTS */}
-        <div
-          className="animated-layer fade-in-right-animation fadeInRight wow"
-          data-wow-offset={200}
-        >
-          <div>
-            <div>
-              <h3>67</h3>
-              <p>
-                completed<span>projects</span>
-              </p>
-            </div>
-          </div>
-        </div>
-        {/* SINGE FACT ITEM ENDS */}
-        {/* SINGE FACT ITEM STARTS */}
-        <div
-          className="animated-layer fade-in-right-animation fadeInLeft wow"
-          data-wow-offset={200}
-        >
-          <div>
-            <div>
-              <h3>56</h3>
-              <p>
-                Happy<span>customers</span>
-              </p>
-            </div>
-          </div>
-        </div>
-        {/* SINGE FACT ITEM ENDS */}
-        {/* SINGE FACT ITEM STARTS */}
-        <div
-          className="animated-layer fade-in-right-animation fadeInRight wow"
-          data-wow-offset={200}
-        >
-          <div>
-            <div>
-              <h3>13</h3>
-              <p>
-                awards<span>won</span>
-              </p>
-            </div>
-          </div>
-        </div>
-        {/* SINGE FACT ITEM ENDS */}
-        {/* SINGE FACT ITEM STARTS */}
-        <div
-          className="animated-layer fade-in-right-animation fadeInLeft wow"
-          data-wow-offset={200}
-        >
-          <div>
-            <div>
-              <h3>32</h3>
-              <p>
-                learned<span>frameworks</span>
-              </p>
-            </div>
-          </div>
-        </div>
-        {/* SINGE FACT ITEM ENDS */}
+        ))}
       </div>
       <img
         alt=""
@@ -86,4 +58,5 @@ const Facts = () => {
     </section>
   );
 };
+
 export default Facts;

@@ -1,6 +1,3 @@
-// app/page.tsx
-"use client";
-
 import Header from "@/src/components/Header";
 import ScrollBar from "@/src/components/ScrollBar";
 import About from "@/src/components/sections/About";
@@ -9,27 +6,16 @@ import Clients from "@/src/components/sections/Clients";
 import Contact from "@/src/components/sections/Contact";
 import Copyright from "@/src/components/sections/Copyright";
 import Facts from "@/src/components/sections/Facts";
-import Home1 from "@/src/components/sections/Home1";
+import Home from "@/src/components/sections/Home";
 import Portfolio from "@/src/components/sections/Portfolio";
 import Testimonials from "@/src/components/sections/Testimonials";
 import Separator from "@/src/components/Separator";
-// import { jqueryFuntion } from "@/src/utilits";
+import { jqueryFuntion } from "@/src/utilits";
 import { Fragment, useEffect } from "react";
-import { jqueryFuntion } from "@/src/utilits/jqueryFuntion";
-
-
-export default function HomePage() {
+const Index = () => {
   useEffect(() => {
-    // Dynamically import jQuery and the plugin only in browser
-    import("jquery").then(($) => {
-      import("jquery-mousewheel").then(() => {
-        // Now jQuery is loaded, and mousewheel plugin is applied
-        // You can call your jqueryFunction safely here
-        jqueryFuntion();
-      });
-    });
-  }, []);
-
+    jqueryFuntion();
+  });
 
   return (
     <Fragment>
@@ -37,21 +23,21 @@ export default function HomePage() {
         <Header />
         <div id="wrapper">
           <main className="flex-column-mobile">
-            <Home1 />
+            <Home />
             <About />
-            <Separator type="down" />
+            <Separator type={"down"} />
             <Facts />
-            <Separator type="up" />
+            <Separator type={"up"} />
             <Portfolio />
-            <Separator type="down" />
+            <Separator type={"down"} />
             <Testimonials />
-            <Separator type="up" />
+            <Separator type={"up"} />
             <Contact />
-            <Separator type="down" />
+            <Separator type={"down"} />
             <Clients />
-            <Separator type="up" />
+            <Separator type={"up"} />
             <Blog />
-            <Separator type="down" />
+            <Separator type={"down"} />
             <Copyright />
           </main>
         </div>
@@ -59,4 +45,5 @@ export default function HomePage() {
       </div>
     </Fragment>
   );
-}
+};
+export default Index;

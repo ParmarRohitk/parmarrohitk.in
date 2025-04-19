@@ -8,31 +8,18 @@ const Copyright = () => {
       />
       <div>
         <span>© {new Date().getFullYear()} Parmar Rohit K.</span>
-        <span>
-          Designed By{" "}
-          <a target="_blank" href="/">
-            Parmar Rohit K.
-          </a>
-        </span>
         <ul>
           <li>
-            <a href="#">
+            <a href="https://github.com/ParmarRohitk" target="_blank">
               <i className="fa-brands fa-github" />
             </a>
           </li>
           <li>
-            <a href="#">
-              <i className="fa-brands fa-twitter" />
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <i className="fa-brands fa-dribbble" />
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <i className="fa-brands fa-facebook" />
+            <a
+              href="https://www.linkedin.com/in/parmar-rohit-k-2b747721b/"
+              target="_blank"
+            >
+              <i className="fa-brands fa-linkedin" />
             </a>
           </li>
         </ul>

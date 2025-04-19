@@ -7,30 +7,51 @@ const Testimonials = () => {
           <div>
             <p>
               <span className="quote">
-                " I worked with Steven, he was very helpful and fast to respond
-                to my inquiry to help with Wordpress website issues and all
-                technical problems. "
+                " Working with Rohit was an absolute pleasure. He redesigned our
+                finance website with a clean, responsive layout and ensured a
+                smooth deployment on Hostinger. "
               </span>
-              <span className="person">Jasmin Aniston</span>
-              <span className="job">Director - Adobe</span>
+              <span className="person">Neha Patel</span>
+              <span className="job">Founder - FinEdge Consultants</span>
             </p>
-            <img src="assets/testimonials/testimonial-1.jpg" alt="" />
+            <img src="/prk/testimonials_neha_patel.webp" alt="Neha Patel" />
           </div>
         </div>
         {/* TESTIMONIAL ITEM ENDS */}
+
         {/* TESTIMONIAL ITEM STARTS */}
         <div className="quote-container animated-layer fade-in-right-animation fadeInUp wow">
           <div>
             <p>
               <span className="quote">
-                " Steven is a great help managing a very out of date website.
-                Everything we ask him to do is done quickly and efficiently, we
-                would be lost without him. "
+                " Rohit delivered our custom e-commerce platform with incredible
+                speed and quality. His knowledge of Next.js and Laravel helped
+                us scale fast and efficiently. "
               </span>
-              <span className="person">Mark Eliott</span>
-              <span className="job">Manager - Envato</span>
+              <span className="person">Arjun Mehta</span>
+              <span className="job">CTO - EZSOP</span>
             </p>
-            <img src="assets/testimonials/testimonial-2.jpg" alt="" />
+            <img src="/prk/testimonials_arjun_mehta.webp" alt="Arjun Mehta" />
+          </div>
+        </div>
+        {/* TESTIMONIAL ITEM ENDS */}
+
+        {/* TESTIMONIAL ITEM STARTS */}
+        <div className="quote-container animated-layer fade-in-right-animation fadeInUp wow">
+          <div>
+            <p>
+              <span className="quote">
+                " Rohit took full ownership of our LMS project. From React UI to
+                API integration, he ensured everything was delivered on time and
+                with pixel-perfect accuracy. "
+              </span>
+              <span className="person">Simran Kapoor</span>
+              <span className="job">Project Manager - Busilearn</span>
+            </p>
+            <img
+              src="/prk/testimonials_simran_kapoor.webp"
+              alt="Simran Kapoor"
+            />
           </div>
         </div>
         {/* TESTIMONIAL ITEM ENDS */}
@@ -43,4 +64,5 @@ const Testimonials = () => {
     </section>
   );
 };
+
 export default Testimonials;

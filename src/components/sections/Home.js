@@ -1,4 +1,4 @@
-const Home1 = () => {
+const Home = () => {
   return (
     <section className="home image" id="home">
       <div>
@@ -6,17 +6,18 @@ const Home1 = () => {
           <h1>
             <span>
               <span className="animated-layer">
-                Hello<span>.</span>
+                Full-Stack<span>.</span>
               </span>
             </span>
             <span className="position-relative">
-              <span className="animated-layer">I am</span>
+              <span className="animated-layer">Web</span>
               <span className="intro animated-layer">
-                Front-end Developer with 7 years experience based in London
+                with {new Date().getFullYear() - 2022}+ years of experience in
+                ReactJS, NextJS, and NodeJS Development.
               </span>
             </span>
             <span>
-              <span className="animated-layer">Steven</span>
+              <span className="animated-layer"> Developer</span>
             </span>
           </h1>
         </div>
@@ -29,4 +30,5 @@ const Home1 = () => {
     </section>
   );
 };
-export default Home1;
+
+export default Home;

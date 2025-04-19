@@ -1,31 +1,23 @@
-import SwiperCore from "swiper";
-import {
+import SwiperCore, {
   Autoplay,
+  EffectCreative,
+  EffectFade,
+  Grid,
+  Mousewheel,
+  Navigation,
+  Pagination,
+  Virtual,
+} from "swiper";
+SwiperCore.use([
+  Mousewheel,
   Pagination,
   Navigation,
   EffectFade,
-  Virtual,
+  Autoplay,
   Grid,
-  Mousewheel,
   EffectCreative,
-} from "swiper/modules";
-
-// Register modules in a plain function (not a React Hook)
-export function registerSwiperModules() {
-  SwiperCore.use([
-    Autoplay,
-    Pagination,
-    Navigation,
-    EffectFade,
-    Virtual,
-    Grid,
-    Mousewheel,
-    EffectCreative,
-  ]);
-}
-
-// Call this function once at the app's root level
-registerSwiperModules();
+  Virtual,
+]);
 
 export const salimovSlider = {
   portfolio: {
@@ -53,9 +45,15 @@ export const salimovSlider = {
     slidesPerView: 2,
     loop: true,
     breakpoints: {
-      320: { slidesPerView: 1 },
-      768: { slidesPerView: 2 },
-      1025: { slidesPerView: 3 },
+      320: {
+        slidesPerView: 1,
+      },
+      768: {
+        slidesPerView: 2,
+      },
+      1025: {
+        slidesPerView: 3,
+      },
     },
     spaceBetween: 50,
     grabCursor: true,
