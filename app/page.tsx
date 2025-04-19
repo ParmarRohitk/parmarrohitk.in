@@ -1,3 +1,4 @@
+// app/page.tsx
 "use client";
 
 import Header from "@/src/components/Header";
@@ -12,43 +13,50 @@ import Home1 from "@/src/components/sections/Home1";
 import Portfolio from "@/src/components/sections/Portfolio";
 import Testimonials from "@/src/components/sections/Testimonials";
 import Separator from "@/src/components/Separator";
-import { Fragment } from "react";
-import useJQueryFunction from "@/src/utilits/jqueryFuntion";
 // import { jqueryFuntion } from "@/src/utilits";
-// import { jqueryFuntion } from "@/src/utilits/jqueryFuntion";
+import { Fragment, useEffect } from "react";
+import { jqueryFuntion } from "@/src/utilits/jqueryFuntion";
 
-export default function Page() {
-  useJQueryFunction();
+
+export default function HomePage() {
+  useEffect(() => {
+    // Dynamically import jQuery and the plugin only in browser
+    import("jquery").then(($) => {
+      import("jquery-mousewheel").then(() => {
+        // Now jQuery is loaded, and mousewheel plugin is applied
+        // You can call your jqueryFunction safely here
+        jqueryFuntion();
+      });
+    });
+  }, []);
+
 
   return (
-    <div id="wrapper">
-
-      <Fragment>
-        <div className="page-content">
-          <Header />
-          <div id="wrapper">
-            <main className="flex-column-mobile">
-              <Home1 />
-              <About />
-              <Separator type="down" />
-              <Facts />
-              <Separator type="up" />
-              <Portfolio />
-              <Separator type="down" />
-              <Testimonials />
-              <Separator type="up" />
-              <Contact />
-              <Separator type="down" />
-              <Clients />
-              <Separator type="up" />
-              <Blog />
-              <Separator type="down" />
-              <Copyright />
-            </main>
-          </div>
-          <ScrollBar />
+    <Fragment>
+      <div className="page-content">
+        <Header />
+        <div id="wrapper">
+          <main className="flex-column-mobile">
+            <Home1 />
+            <About />
+            <Separator type="down" />
+            <Facts />
+            <Separator type="up" />
+            <Portfolio />
+            <Separator type="down" />
+            <Testimonials />
+            <Separator type="up" />
+            <Contact />
+            <Separator type="down" />
+            <Clients />
+            <Separator type="up" />
+            <Blog />
+            <Separator type="down" />
+            <Copyright />
+          </main>
         </div>
-      </Fragment>
-    </div>
+        <ScrollBar />
+      </div>
+    </Fragment>
   );
 }

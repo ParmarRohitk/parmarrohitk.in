@@ -7,14 +7,11 @@ const Copyright = () => {
         src="assets/separator-copyright.png"
       />
       <div>
-        <span>© {new Date().getFullYear()} Steven Walker</span>
+        <span>© {new Date().getFullYear()} Parmar Rohit K.</span>
         <span>
           Designed By{" "}
-          <a
-            target="_blank"
-            href="https://themeforest.net/user/Codeefly/portfolio"
-          >
-            Codeefly
+          <a target="_blank" href="/">
+            Parmar Rohit K.
           </a>
         </span>
         <ul>

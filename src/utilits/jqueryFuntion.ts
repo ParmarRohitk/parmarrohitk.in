@@ -1,114 +1,166 @@
-'use client';
-import { useEffect } from "react";
+export const jqueryFuntion = async () => {
+  // Ensure this only runs in the browser
+  if (typeof window === "undefined") return;
 
-// Declare the jQuery extension for mCustomScrollbar
-declare global {
-  interface JQuery {
-    mCustomScrollbar: (options?: {
-      axis?: string;
-      theme?: string;
-      keyboard?: object;
-      advanced?: object;
-      mouseWheel?: object;
-      callbacks?: object;
-    }) => JQuery<HTMLElement>;
-  }
-}
+  // Dynamically import jQuery and plugins
+  const $ = (await import("jquery")).default;
+  (window as any).$ = $;
+  (window as any).jQuery = $;
 
-const useJQueryFunction = () => {
-  useEffect(() => {
-    // Check if running in the browser
-    if (typeof window === "undefined") return;
+  await import("jquery-mousewheel");
+  await import("malihu-custom-scrollbar-plugin");
 
-    // Dynamically import jQuery, mCustomScrollbar, and WOW.js on the client side
-    const loadJQueryAndPlugins = async () => {
-      // Import jQuery
-      const $ = (await import("jquery")).default;
-      (window as Window & typeof globalThis & { $: typeof $ }).$ = $;
-      (window as Window & typeof globalThis & { jQuery: typeof $ }).jQuery = $;
+  $(window).on("load", function () {
+    const preloader = $("#preloader");
 
-      // Dynamically import additional jQuery plugins
-      await import("jquery-mousewheel");
-      await import("malihu-custom-scrollbar-plugin");
+    setTimeout(() => {
+      preloader.addClass("preloaded");
+    }, 800);
 
-      // Dynamically import WOW.js (correct the import method)
-      const WOW = (await import("wowjs")).default;  // Use default import for WOW.js
-      const wowInstance = new WOW();
-      wowInstance.init();
+    if ($(window).width() > 1024) {
+      setTimeout(() => $(".header-inner").addClass("animated fadeInDown"), 1500);
+      setTimeout(() => {
+        $(".home>div>div h1 span span").addClass("animated fadeInUp");
+        $(".home>div>div .intro").addClass("animated fadeInUp");
+        $(".home .cta").addClass("animated fadeInUp");
+      }, 2200);
+    } else {
+      setTimeout(() => $(".header-inner").addClass("animated fadeInDown"), 1100);
+      setTimeout(() => {
+        $(".home>div>div h1 span span").addClass("animated fadeInUp");
+        $(".home>div>div .intro").addClass("animated fadeInUp");
+        $(".home .cta").addClass("animated fadeInUp");
+      }, 1800);
+    }
 
-      // Handle animations
-      const animateHeader = () => {
-        const headerClass = "animated fadeInDown";
-        const introClass = "animated fadeInUp";
-        if ($(window).width() ?? 0 > 1024) {
-          setTimeout(() => $(".header-inner").addClass(headerClass), 1500);
-          setTimeout(() => {
-            $(".home>div>div h1 span span").addClass(introClass);
-            $(".home>div>div .intro").addClass(introClass);
-            $(".home .cta").addClass(introClass);
-          }, 2200);
-        } else {
-          setTimeout(() => $(".header-inner").addClass(headerClass), 1100);
-          setTimeout(() => {
-            $(".home>div>div h1 span span").addClass(introClass);
-            $(".home>div>div .intro").addClass(introClass);
-            $(".home .cta").addClass(introClass);
-          }, 1800);
+    // Width calculations
+    const homewidth = $(".home").width()! - 10;
+    const aboutwidth = homewidth + $(".about").width()! + $(".facts").width()! - 10;
+    const portfoliowidth =
+      aboutwidth +
+      $(".portfolio .single-item .main-content").width()! +
+      $(".portfolio .single-item .details").width()! +
+      250 +
+      65 +
+      300 +
+      $(".clients").width()! -
+      10;
+    const contactwidth =
+      portfoliowidth + $(".contact").width()! + $(".testimonials").width()! - 10;
+    const blogwidth =
+      contactwidth + $(".blog").width()! + $(".copyright").width()! - 10;
+
+    function animateContent() {
+      const divWidth = $("#wrapper").width()! - $(window).width()! / 2 + 270;
+      $(".animated-layer").each(function () {
+        const $el = $(this);
+        const offset = $el.offset()!.left;
+        if (offset < divWidth) {
+          if ($el.hasClass("image-animation")) $el.addClass("animated");
+          else if ($el.hasClass("fade-in-up-animation")) $el.addClass("animated fadeInUp");
+          else if ($el.hasClass("fade-in-animation")) $el.addClass("animated fadeIn");
+          else if ($el.hasClass("fade-in-down-animation")) $el.addClass("animated fadeInDown");
+          else if ($el.hasClass("fade-in-right-animation")) $el.addClass("animated fadeInRight");
+          else if ($el.hasClass("fade-in-left-animation")) $el.addClass("animated fadeInLeft");
         }
+      });
+    }
+
+    function checkScroll() {
+      const scrollPos = Math.abs(parseInt($(".mCSB_container").css("left") || "0"));
+
+      const activateLink = (id: string) => {
+        $(".menu ul li span").removeClass("active");
+        $(id).addClass("active");
       };
 
-      animateHeader();
+      if (scrollPos > homewidth && scrollPos < aboutwidth) activateLink("#about-link");
+      else if (scrollPos > aboutwidth && scrollPos < portfoliowidth) activateLink("#portfolio-link");
+      else if (scrollPos > portfoliowidth && scrollPos < contactwidth) activateLink("#contact-link");
+      else if (scrollPos > contactwidth && scrollPos < blogwidth) activateLink("#blog-link");
+      else activateLink("#home-link");
+    }
 
-      const homewidth = $(".home").width()! - 10;
-      const aboutwidth = homewidth + $(".about").width()! + $(".facts").width()! - 10;
-      const portfoliowidth =
-        aboutwidth +
-        $(".portfolio .single-item .main-content").width()! +
-        $(".portfolio .single-item .details").width()! +
-        250 + 65 + 300 +
-        $(".clients").width()! - 10;
-      const contactwidth =
-        portfoliowidth + $(".contact").width()! + $(".testimonials").width()! - 10;
-      const blogwidth =
-        contactwidth + $(".blog").width()! + $(".copyright").width()! - 10;
-
-      // Handle scroll events
-      const checkScroll = () => {
-        const pos = Math.abs(parseInt($(".mCSB_container").css("left") || "0"));
-        const updateActive = (id: string) => {
-          $(".menu ul li span").removeClass("active");
-          $(`#${id}`).addClass("active");
-        };
-        if (pos > homewidth && pos < aboutwidth) updateActive("about-link");
-        else if (pos > aboutwidth && pos < portfoliowidth) updateActive("portfolio-link");
-        else if (pos > portfoliowidth && pos < contactwidth) updateActive("contact-link");
-        else if (pos > contactwidth && pos < blogwidth) updateActive("blog-link");
-        else updateActive("home-link");
-      };
-
-      // Initialize the scrollbar and animations for larger screens
-      if ($("#wrapper").length && $(window).width()! > 1024) {
-        $("#wrapper").mCustomScrollbar({
-          axis: "x",
-          theme: "dark-3",
-          keyboard: { enable: true, scrollType: "stepless" },
-          advanced: { autoExpandHorizontalScroll: true },
-          mouseWheel: { scrollAmount: 400 },
-          callbacks: {
-            whileScrolling: () => {
-              animateContent();
-              checkScroll();
-            },
+    if ($("#wrapper").length && $(window).width()! > 1024) {
+      $("#wrapper").mCustomScrollbar({
+        axis: "x",
+        theme: "dark-3",
+        keyboard: { enable: true, scrollType: "stepless" },
+        advanced: {
+          autoExpandHorizontalScroll: true,
+        },
+        mouseWheel: {
+          scrollAmount: 400,
+        },
+        callbacks: {
+          whileScrolling: function () {
+            animateContent();
+            checkScroll();
           },
-        });
-      } else {
-        new WOW().init();  // Initialize WOW.js for smaller screens or animation triggers
-      }
+        },
+      });
+    } else {
+       (async () => {
+    const WOW = (await import("wowjs")).WOW;
+    new WOW().init();
+  })();
+    }
+  });
+
+  $(document).ready(function () {
+    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+    if (isSafari) $("body").addClass("body-safari");
+
+    $("a[href='#']").on("click", (e) => e.preventDefault());
+
+    const removeHash = () => {
+      history.replaceState(
+        "",
+        document.title,
+        window.location.origin + window.location.pathname + window.location.search
+      );
     };
 
-    // Call the function to load and initialize
-    loadJQueryAndPlugins();
-  }, []); // Empty dependency array to run this effect only once after the component mounts
-};
+    $("#menu li a").on("click", () => setTimeout(removeHash, 5));
 
-export default useJQueryFunction;
+    if ($(window).width()! > 1024) {
+      $(".fadeIn, .fadeInUp, .fadeInDown, .fadeInRight, .fadeInLeft").removeClass(
+        "fadeIn fadeInUp fadeInDown fadeInRight fadeInLeft"
+      );
+    }
+
+    $(".menu ul li span").on("click", function () {
+      setTimeout(() => $(this).toggleClass("active"), 1600);
+    });
+
+    const scrollTo = (target: string) =>
+      $("#wrapper").mCustomScrollbar("scrollTo", target, {
+        scrollInertia: 1500,
+      });
+
+    $("#home-link").on("click", () => scrollTo("#home"));
+    $("#about-link").on("click", () => scrollTo("#about"));
+    $("#portfolio-link").on("click", () => scrollTo("#portfolio"));
+    $("#contact-link").on("click", () => scrollTo("#contact"));
+    $("#blog-link").on("click", () => scrollTo("#blog"));
+
+    $("#menu li a").on("click", () => {
+      $("#checkboxmenu").trigger("click");
+      $("body").toggleClass("overflow-hidden");
+    });
+
+    $("#menuToggle").on("click", () => {
+      $("body").toggleClass("overflow-hidden");
+    });
+
+    $("#cta").on("click", () => {
+      if ($(window).width()! > 1024) {
+        scrollTo("#about");
+      } else {
+        $("html, body").animate({
+          scrollTop: $("#my-photo").offset()!.top,
+        });
+      }
+    });
+  });
+};

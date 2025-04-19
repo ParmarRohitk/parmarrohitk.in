@@ -1,8 +1,19 @@
+/* eslint-disable @next/next/no-page-custom-font */
+/* eslint-disable @next/next/no-css-tags */
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
 import Preloader from "@/src/components/Preloader";
+import Switcher from "@/src/components/Switcher";
+import SalimovHead from "@/src/SalimovHead";
+import { registerSwiperModules } from "@/src/sliderProps";
 
+import "./globals.css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/effect-fade";
+import "swiper/css/grid";
+import { Fragment } from "react";
+registerSwiperModules();
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -25,35 +36,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        {/* Template Google Fonts */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Livvic:wght@100;200;300;400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
-        {/* Template CSS Files */}
-        <link rel="stylesheet" href="css/devicon.min.css" />
-        <link rel="stylesheet" href="css/all.min.css" />
-        <link rel="stylesheet" href="css/bootstrap.min.css" />
-        <link rel="stylesheet" href="css/swiper-bundle.min.css" />
-        <link rel="stylesheet" href="css/animate.min.css" />
-        <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css" />
-        <link rel="stylesheet" href="css/style.css" />
-        {/* CSS Skin File */}
-        <link rel="stylesheet" href="css/skins/yellow.css" />
-        {/* Live Style Switcher - demo only */}
+      <SalimovHead />
 
-        <link rel="stylesheet" type="text/css" href="css/styleswitcher.css" />
-      </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {/* <SalimovHead /> */}
-        {/* <Switcher /> */}
+      <body>
+        <Switcher />
         <Preloader />
         {children}
       </body>

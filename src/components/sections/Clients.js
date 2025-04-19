@@ -1,30 +1,17 @@
 "use client";
 import { salimovSlider } from "@/src/sliderProps";
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, {
-  Autoplay,
-  EffectCreative,
-  EffectFade,
-  Grid,
-  Mousewheel,
-  Navigation,
-  Pagination,
-  Virtual,
-} from "swiper";
-import { useEffect } from "react";
+
 const Clients = () => {
-  useEffect(() => {
-    SwiperCore.use([
-      Autoplay,
-      EffectCreative,
-      EffectFade,
-      Grid,
-      Mousewheel,
-      Navigation,
-      Pagination,
-      Virtual,
-    ]);
-  }, []);
+  const logos = [
+    ["themeforest", "photodune"],
+    ["graphicriver", "codecanyon"],
+    ["audiojungle", "activeden"],
+    ["3docean", "themeforest"],
+    ["activeden", "audiojungle"],
+    ["graphicriver", "codecanyon"],
+  ];
+
   return (
     <section className="clients">
       <div className="clients-container animated-layer fade-in-right-animation fadeInUp wow">
@@ -32,107 +19,23 @@ const Clients = () => {
         <Swiper
           {...salimovSlider.clients}
           className="swiper swiper-clients fadeInUp wow"
-          navigation={{
-            nextEl: ".next-item", // Selector for the "next" button
-            prevEl: ".prev-item", // Selector for the "prev" button
-          }}
         >
-          {/* SWIPER ITEM STARTS */}
-          <SwiperSlide className="swiper-slide">
-            <div>
-              <img
-                src="assets/logos/themeforest-dark-background.png"
-                alt="client"
-              />
-            </div>
-            <div>
-              <img
-                src="assets/logos/photodune-dark-background.png"
-                alt="client"
-              />
-            </div>
-          </SwiperSlide>
-          {/* SWIPER ITEM ENDS */}
-          {/* SWIPER ITEM STARTS */}
-          <SwiperSlide className="swiper-slide">
-            <div>
-              <img
-                src="assets/logos/graphicriver-dark-background.png"
-                alt="client"
-              />
-            </div>
-            <div>
-              <img
-                src="assets/logos/codecanyon-dark-background.png"
-                alt="client"
-              />
-            </div>
-          </SwiperSlide>
-          {/* SWIPER ITEM ENDS */}
-          {/* SWIPER ITEM STARTS */}
-          <SwiperSlide className="swiper-slide">
-            <div>
-              <img
-                src="assets/logos/audiojungle-dark-background.png"
-                alt="client"
-              />
-            </div>
-            <div>
-              <img
-                src="assets/logos/activeden-dark-background.png"
-                alt="client"
-              />
-            </div>
-          </SwiperSlide>
-          {/* SWIPER ITEM ENDS */}
-          {/* SWIPER ITEM STARTS */}
-          <SwiperSlide className="swiper-slide">
-            <div>
-              <img
-                src="assets/logos/3docean-dark-background.png"
-                alt="client"
-              />
-            </div>
-            <div>
-              <img
-                src="assets/logos/themeforest-dark-background.png"
-                alt="client"
-              />
-            </div>
-          </SwiperSlide>
-          {/* SWIPER ITEM ENDS */}
-          {/* SWIPER ITEM STARTS */}
-          <SwiperSlide className="swiper-slide">
-            <div>
-              <img
-                src="assets/logos/activeden-dark-background.png"
-                alt="client"
-              />
-            </div>
-            <div>
-              <img
-                src="assets/logos/audiojungle-dark-background.png"
-                alt="client"
-              />
-            </div>
-          </SwiperSlide>
-          {/* SWIPER ITEM ENDS */}
-          {/* SWIPER ITEM STARTS */}
-          <SwiperSlide className="swiper-slide">
-            <div>
-              <img
-                src="assets/logos/graphicriver-dark-background.png"
-                alt="client"
-              />
-            </div>
-            <div>
-              <img
-                src="assets/logos/codecanyon-dark-background.png"
-                alt="client"
-              />
-            </div>
-          </SwiperSlide>
-          {/* SWIPER ITEM ENDS */}
+          {logos.map(([logo1, logo2], i) => (
+            <SwiperSlide className="swiper-slide" key={i}>
+              <div>
+                <img
+                  src={`assets/logos/${logo1}-dark-background.png`}
+                  alt="client"
+                />
+              </div>
+              <div>
+                <img
+                  src={`assets/logos/${logo2}-dark-background.png`}
+                  alt="client"
+                />
+              </div>
+            </SwiperSlide>
+          ))}
           <div className="swiper-pagination" />
         </Swiper>
       </div>

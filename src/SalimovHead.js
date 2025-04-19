@@ -13,18 +13,18 @@ const SalimovHead = () => {
         rel="stylesheet"
       />
       {/* Template CSS Files */}
-      <link rel="stylesheet" href="css/devicon.min.css" />
-      <link rel="stylesheet" href="css/all.min.css" />
-      <link rel="stylesheet" href="css/bootstrap.min.css" />
-      <link rel="stylesheet" href="css/swiper-bundle.min.css" />
-      <link rel="stylesheet" href="css/animate.min.css" />
-      <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css" />
-      <link rel="stylesheet" href="css/style.css" />
+      <link rel="stylesheet" href="/css/devicon.min.css" />
+      <link rel="stylesheet" href="/css/all.min.css" />
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+      <link rel="stylesheet" href="/css/swiper-bundle.min.css" />
+      <link rel="stylesheet" href="/css/animate.min.css" />
+      <link rel="stylesheet" href="/css/jquery.mCustomScrollbar.min.css" />
+      <link rel="stylesheet" href="/css/style.css" />
       {/* CSS Skin File */}
       {/* <link rel="stylesheet" href="css/skins/yellow.css" /> */}
       {/* Live Style Switcher - demo only */}
 
-      <link rel="stylesheet" type="text/css" href="css/styleswitcher.css" />
+      <link rel="stylesheet" type="text/css" href="/css/styleswitcher.css" />
     </Head>
   );
 };

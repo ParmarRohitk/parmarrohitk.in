@@ -1,34 +1,32 @@
-"use client";
-import { useEffect } from "react";
-import SwiperCore, {
+import SwiperCore from "swiper";
+import {
   Autoplay,
-  EffectCreative,
+  Pagination,
+  Navigation,
   EffectFade,
+  Virtual,
   Grid,
   Mousewheel,
-  Navigation,
-  Pagination,
-  Virtual,
-} from "swiper";
+  EffectCreative,
+} from "swiper/modules";
 
-// Swiper module initialization using useEffect inside a component or custom hook
-const useSwiperModules = () => {
-  // UseEffect ensures that this code is run only once when the component is mounted
-  useEffect(() => {
-    SwiperCore.use([
-      Mousewheel,
-      Pagination,
-      Navigation,
-      EffectFade,
-      Autoplay,
-      Grid,
-      EffectCreative,
-      Virtual,
-    ]);
-  }, []);
-};
+// Register modules in a plain function (not a React Hook)
+export function registerSwiperModules() {
+  SwiperCore.use([
+    Autoplay,
+    Pagination,
+    Navigation,
+    EffectFade,
+    Virtual,
+    Grid,
+    Mousewheel,
+    EffectCreative,
+  ]);
+}
 
-// Slider configuration (no changes here)
+// Call this function once at the app's root level
+registerSwiperModules();
+
 export const salimovSlider = {
   portfolio: {
     loop: true,
@@ -55,15 +53,9 @@ export const salimovSlider = {
     slidesPerView: 2,
     loop: true,
     breakpoints: {
-      320: {
-        slidesPerView: 1,
-      },
-      768: {
-        slidesPerView: 2,
-      },
-      1025: {
-        slidesPerView: 3,
-      },
+      320: { slidesPerView: 1 },
+      768: { slidesPerView: 2 },
+      1025: { slidesPerView: 3 },
     },
     spaceBetween: 50,
     grabCursor: true,
@@ -83,5 +75,3 @@ export const salimovSlider = {
     },
   },
 };
-
-export default useSwiperModules;
