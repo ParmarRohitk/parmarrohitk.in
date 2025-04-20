@@ -3,8 +3,10 @@ import Preloader from "@/src/components/Preloader";
 import Switcher from "@/src/components/Switcher";
 import SalimovHead from "@/src/SalimovHead";
 import "@/styles/globals.css";
+import { useRouter } from "next/router";
 
 const App = ({ Component, pageProps }) => {
+  const router = useRouter();
   useEffect(() => {
     const outer = document.getElementById("cursor-outer");
     const inner = document.getElementById("cursor-inner");
@@ -19,10 +21,17 @@ const App = ({ Component, pageProps }) => {
 
     window.addEventListener("mousemove", moveCursor);
 
+    // Scrollable behavior for /blog pages
+    if (router.pathname.startsWith("/blog")) {
+      document.body.classList.add("blog-scrollable");
+    } else {
+      document.body.classList.remove("blog-scrollable");
+    }
+
     return () => {
       window.removeEventListener("mousemove", moveCursor);
     };
-  }, []);
+  }, [router.pathname]);
 
   return (
     <Fragment>

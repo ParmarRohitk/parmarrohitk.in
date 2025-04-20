@@ -1,3 +1,4 @@
+import { getBlogPosts } from "@/src/components/getBlogPosts";
 import Header from "@/src/components/Header";
 import ScrollBar from "@/src/components/ScrollBar";
 import About from "@/src/components/sections/About";
@@ -12,7 +13,7 @@ import Testimonials from "@/src/components/sections/Testimonials";
 import Separator from "@/src/components/Separator";
 import { jqueryFuntion } from "@/src/utilits";
 import { Fragment, useEffect } from "react";
-const Index = () => {
+const Index = ({ posts }) => {
   useEffect(() => {
     jqueryFuntion();
   });
@@ -36,7 +37,7 @@ const Index = () => {
             <Separator type={"down"} />
             <Clients />
             <Separator type={"up"} />
-            <Blog />
+            <Blog posts={posts} />
             <Separator type={"down"} />
             <Copyright />
           </main>
@@ -46,4 +47,14 @@ const Index = () => {
     </Fragment>
   );
 };
+
 export default Index;
+
+export async function getStaticProps() {
+  const posts = getBlogPosts(3); // Only used here!
+  return {
+    props: {
+      posts,
+    },
+  };
+}

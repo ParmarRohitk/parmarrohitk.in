@@ -1,8 +1,8 @@
 import Link from "next/link";
 
-const Blog = ({ posts }) => {
+const BlogCard = ({ posts }) => {
   return (
-    <section className="blog post main-section flex-column-mobile" id="blog">
+    <section className="blog main-section flex-column-mobile" id="blog">
       <div className="custom-title">
         <h3>
           <span>
@@ -48,4 +48,4 @@ const Blog = ({ posts }) => {
   );
 };
 
-export default Blog;
+export default BlogCard;

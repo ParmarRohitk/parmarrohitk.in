@@ -8,6 +8,20 @@ body {
   cursor: none;
 }
 
+body.blog-scrollable {
+  overflow-y: auto; /* Enable scrolling on blog pages */
+  scroll-behavior: smooth; /* Smooth scrolling */
+  padding-right: 10px; /* Prevent horizontal scroll caused by scrollbar */
+}
+
+.post {
+  max-width: 800px;
+  margin: 4rem auto;
+  padding: 0 1.25rem;
+  color: #e5e7eb;
+  line-height: 1.8;
+  overflow-y: auto;
+}
 /* Outer circle */
 #cursor-outer {
   position: fixed;
