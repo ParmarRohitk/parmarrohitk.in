@@ -37,7 +37,7 @@ const Index = ({ posts }) => {
             <Separator type={"down"} />
             <Clients />
             <Separator type={"up"} />
-            <Blog posts={posts} />
+            {/* <Blog posts={posts} /> */}
             <Separator type={"down"} />
             <Copyright />
           </main>
