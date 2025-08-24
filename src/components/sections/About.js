@@ -70,7 +70,7 @@ const About = () => {
                 <span>
                   <span className="animated-layer fade-in-up-animation fadeInUp wow">
                     <span>Email :</span>
-                    <span>parmarrohitk.01@gmail.com</span>
+                    <span><a href="mailto:parmarrohitk.01@gmail.com">parmarrohitk.01@gmail.com</a></span>
                   </span>
                 </span>
               </li>
