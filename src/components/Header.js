@@ -65,11 +65,11 @@ const Header = () => {
                 <span>Contact</span>
               </a>
             </li>
-            <li>
+            {/* <li>
               <a href="#blog">
                 <span>Blog</span>
               </a>
-            </li>
+            </li> */}
           </ul>
         </div>
       </nav>

@@ -1,5 +1,5 @@
 "use client";
-import { salimovSlider } from "@/src/sliderProps";
+import { Slider } from "@/src/sliderProps";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, {
   Autoplay,
@@ -48,7 +48,7 @@ const Clients = () => {
           and high value in terms of outcome.
         </p>
         {/*  <Swiper
-          {...salimovSlider.clients}
+          {...Slider.clients}
           className="swiper swiper-clients fadeInUp wow"
           navigation={{
             nextEl: ".next-item",

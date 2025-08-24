@@ -1,9 +1,9 @@
 import { useEffect, Fragment } from "react";
 import Preloader from "@/src/components/Preloader";
 import Switcher from "@/src/components/Switcher";
-import SalimovHead from "@/src/SalimovHead";
 import "@/styles/globals.css";
 import { useRouter } from "next/router";
+import ParmarRohitKHead from "@/src/Head";
 
 const App = ({ Component, pageProps }) => {
   const router = useRouter();
@@ -35,7 +35,7 @@ const App = ({ Component, pageProps }) => {
 
   return (
     <Fragment>
-      <SalimovHead />
+      <ParmarRohitKHead />
 
       {/* Custom Cursor Elements */}
       <div id="cursor-outer"></div>
