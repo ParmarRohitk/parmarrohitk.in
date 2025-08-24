@@ -21,9 +21,9 @@ const Header = () => {
               <li>
                 <span id="contact-link">Contact</span>
               </li>
-              <li>
+              {/* <li>
                 <span id="blog-link">Blog</span>
-              </li>
+              </li> */}
             </ul>
           </nav>
         </div>
