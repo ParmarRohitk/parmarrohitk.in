@@ -42,9 +42,9 @@ const Contact = () => {
           <div className="animated-layer fade-in-down-animation fadeInUp wow">
             <i className="fa fa-envelope" />
             <p>
-              <a href="mailto:parmarrohitk.bca@gmail.com">
+              <a href="mailto:parmarrohitk.01@gmail.com">
                 <span className="small-text">email</span>
-                parmarrohitk.bca@gmail.com
+                parmarrohitk.01@gmail.com
               </a>
             </p>
           </div>

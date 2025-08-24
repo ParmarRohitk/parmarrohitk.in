@@ -131,7 +131,7 @@ const Portfolio = () => {
               </ul>
             </div>
             <a
-              href="https://moviestream.vercel.app"
+              href="https://cinemaio.vercel.app/"
               target="_blank"
               className="custom-btn"
             >
@@ -188,11 +188,7 @@ const Portfolio = () => {
                 </li>
               </ul>
             </div>
-            <a
-              href="https://ezsop.vercel.app"
-              target="_blank"
-              className="custom-btn"
-            >
+            <a href="#" target="_blank" className="custom-btn">
               <span>
                 preview <i className="fa-solid fa-arrow-up-right-from-square" />
               </span>

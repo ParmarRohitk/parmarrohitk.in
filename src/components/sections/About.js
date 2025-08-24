@@ -70,7 +70,7 @@ const About = () => {
                 <span>
                   <span className="animated-layer fade-in-up-animation fadeInUp wow">
                     <span>Email :</span>
-                    <span>contact@parmarrohitk.in</span>
+                    <span>parmarrohitk.01@gmail.com</span>
                   </span>
                 </span>
               </li>
@@ -291,7 +291,7 @@ const About = () => {
                   <h4>Master of Computer Applications (MCA)</h4>
                   <p>
                     <i className="fa-regular fa-clock" />
-                    <span>2023 - Present</span>
+                    <span>July 2023 - July 2025</span>
                   </p>
                   <p>
                     <i className="fa-solid fa-building-columns" />
