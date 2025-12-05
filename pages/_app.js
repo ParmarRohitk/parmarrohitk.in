@@ -5,6 +5,7 @@ import "@/styles/globals.css";
 import { useRouter } from "next/router";
 import ParmarRohitKHead from "@/src/Head";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const App = ({ Component, pageProps }) => {
   const router = useRouter();
@@ -46,6 +47,7 @@ const App = ({ Component, pageProps }) => {
       <Preloader />
       <Component {...pageProps} />
       <Analytics />
+      <SpeedInsights />
     </Fragment>
   );
 };
