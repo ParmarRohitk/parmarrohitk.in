@@ -1,7 +1,7 @@
 "use client";
 import { Slider } from "@/src/sliderProps";
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, {
+import {
   Autoplay,
   EffectCreative,
   EffectFade,
@@ -10,21 +10,8 @@ import SwiperCore, {
   Navigation,
   Pagination,
   Virtual,
-} from "swiper";
-import { useEffect } from "react";
+} from "swiper/modules";
 const Clients = () => {
-  useEffect(() => {
-    SwiperCore.use([
-      Autoplay,
-      EffectCreative,
-      EffectFade,
-      Grid,
-      Mousewheel,
-      Navigation,
-      Pagination,
-      Virtual,
-    ]);
-  }, []);
   return (
     <section className="clients">
       <div className="clients-container animated-layer fade-in-right-animation fadeInUp wow">

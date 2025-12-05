@@ -1,4 +1,4 @@
-import SwiperCore, {
+import {
   Autoplay,
   EffectCreative,
   EffectFade,
@@ -7,20 +7,11 @@ import SwiperCore, {
   Navigation,
   Pagination,
   Virtual,
-} from "swiper";
-SwiperCore.use([
-  Mousewheel,
-  Pagination,
-  Navigation,
-  EffectFade,
-  Autoplay,
-  Grid,
-  EffectCreative,
-  Virtual,
-]);
+} from "swiper/modules";
 
 export const Slider = {
   portfolio: {
+    modules: [Navigation, Mousewheel, EffectFade, Autoplay, EffectCreative],
     loop: true,
     navigation: {
       nextEl: ".next-item",
@@ -42,6 +33,7 @@ export const Slider = {
     },
   },
   clients: {
+    modules: [Pagination, Autoplay, Grid],
     slidesPerView: 2,
     loop: true,
     breakpoints: {
@@ -64,6 +56,7 @@ export const Slider = {
     },
   },
   portfolioItems: {
+    modules: [Pagination, Autoplay],
     slidesPerView: 1,
     loop: true,
     pagination: {
