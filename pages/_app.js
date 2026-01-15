@@ -6,6 +6,21 @@ import { useRouter } from "next/router";
 import ParmarRohitKHead from "@/src/Head";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Livvic, Oswald } from "@next/font/google";
+
+const livvic = Livvic({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700"],
+  variable: "--font-livvic",
+  display: "swap",
+});
+
+const oswald = Oswald({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-oswald",
+  display: "swap",
+});
 
 const App = ({ Component, pageProps }) => {
   const router = useRouter();
@@ -37,6 +52,18 @@ const App = ({ Component, pageProps }) => {
 
   return (
     <Fragment>
+      <style jsx global>{`
+        :root {
+          --font-livvic: ${livvic.style.fontFamily};
+          --font-oswald: ${oswald.style.fontFamily};
+        }
+        body {
+          font-family: var(--font-livvic), sans-serif;
+        }
+        h1, h2, h3, h4, h5, h6 {
+          font-family: var(--font-oswald), sans-serif;
+        }
+      `}</style>
       <ParmarRohitKHead />
 
       {/* Custom Cursor Elements */}
